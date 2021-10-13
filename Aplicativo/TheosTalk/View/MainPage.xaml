@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TheosTalk.View.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:viewmodel="clr-namespace:TheosTalk.ViewModel"
+    x:Name="PageMain"
+    Title="TheósTalk"
+    ios:NavigationPage.IsNavigationBarTranslucent="true"
+    ios:NavigationPage.PrefersLargeTitles="true"
+    ios:Page.LargeTitleDisplay="Always"
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
+
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+
+        <Grid
+            Padding="10"
+            BackgroundColor="White"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Margin="40"
+                Aspect="AspectFit"
+                Source="https://eclesial.theos.com.br/partilhaFraterna/assets/img/logo-theos.png" />
+
+            <Frame
+                Grid.Row="1"
+                Margin="-20,0"
+                BackgroundColor="Black"
+                CornerRadius="0"
+                HasShadow="False"
+                HeightRequest="10"
+                WidthRequest="10" />
+
+            <StackLayout
+                Grid.Row="2"
+                TranslationY="-40"
+                VerticalOptions="StartAndExpand">
+
+                <Label
+                    Margin="30,0"
+                    HorizontalTextAlignment="Start"
+                    TextColor="White">
+
+                    <Label.FormattedText>
+
+                        <FormattedString>
+
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="28"
+                                Text="Bem Vindo ao " />
+
+                            <Span
+                                FontSize="25"
+                                Text="Theòs Talk" />
+
+                        </FormattedString>
+
+                    </Label.FormattedText>
+
+                </Label>
+
+                <Label
+                    Margin="30,20"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    TextColor="Silver">
+
+                    <Label.FormattedText>
+
+                        <FormattedString>
+
+                            <Span
+                                FontSize="Medium"
+                                Text="O Aplicativo " />
+
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="Theòs Talk " />
+
+                            <Span
+                                FontSize="Medium"
+                                Text="faz uso de um serviço cognitivo de visão chamado " />
+
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="CustomVision, " />
+
+                            <Span
+                                FontSize="Medium"
+                                Text="uma técnologia " />
+
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="Microsoft, " />
+
+                            <Span
+                                FontSize="Medium"
+                                Text="com este serviço o " />
+
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="TheòsTalk " />
+
+                            <Span
+                                FontSize="Medium"
+                                Text="através da foto de uma igreja, é capaz de identifica-la." />
+
+                        </FormattedString>
+
+                    </Label.FormattedText>
+
+                </Label>
+
+            </StackLayout>
+
+            <Button
+                Grid.Row="3"
+                Margin="55,0,55,15"
+                Padding="0,20"
+                BackgroundColor="DarkRed"
+                Command="{Binding Source={x:Reference PageMain}, Path=BindingContext.VerificarIgrejaCommand}"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Identificar Igreja"
+                TextColor="White" />
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.534" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction" Version="2.0.0" />
+    <PackageReference Include="Xamarin.Helpers" Version="1.1.0" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+    <PackageReference Include="Refit" Version="6.0.94" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="View\" />
+    <None Remove="ViewModel\" />
+    <None Remove="Model\" />
+    <None Remove="Xam.Plugin.Media" />
+    <None Remove="Acr.UserDialogs" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Service\" />
+    <None Remove="Service\Interface\" />
+    <None Remove="Heleps\" />
+    <None Remove="Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction" />
+    <None Remove="Xamarin.Helpers" />
+    <None Remove="ViewModel\Base\" />
+    <None Remove="PropertyChanged.Fody" />
+    <None Remove="Refit" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper\" />
+    <None Remove="PanCardView" />
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="NETStandard.Library" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="Model\" />
+    <Folder Include="Service\" />
+    <Folder Include="Service\Interface\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="ViewModel\Base\" />
+    <Folder Include="AutoMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheosTalk.Dto\TheosTalk.Dto.csproj" />
+  </ItemGroup>
+</Project>

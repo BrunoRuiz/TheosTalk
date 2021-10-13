@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="TheosTalk.View.IgrejaPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:viewmodel="clr-namespace:TheosTalk.ViewModel"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="False">
+
+    <ContentPage.BindingContext>
+        <viewmodel:IgrejaPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Grid.ColumnSpan="2"
+                Margin="0,-44,0,0"
+                Aspect="AspectFill"
+                Source="{Binding Igreja.UrlImage}" />
+
+            <yummy:PancakeView
+                Grid.ColumnSpan="2"
+                HeightRequest="120"
+                VerticalOptions="End">
+                <yummy:PancakeView.BackgroundGradientStops>
+                    <yummy:GradientStopCollection>
+                        <yummy:GradientStop
+                            Offset="0"
+                            Color="Transparent" />
+                        <yummy:GradientStop
+                            Offset="1"
+                            Color="White" />
+                    </yummy:GradientStopCollection>
+                </yummy:PancakeView.BackgroundGradientStops>
+            </yummy:PancakeView>
+
+            <yummy:PancakeView
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Margin="20,20,20,40"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HeightRequest="500"
+                VerticalOptions="EndAndExpand">
+
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow
+                        BlurRadius="30"
+                        Opacity="0.1"
+                        Offset="10,10"
+                        Color="#000000" />
+                </yummy:PancakeView.Shadow>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="24,24,24,8"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Igreja.NomeIgreja}"
+                        TextColor="Black" />
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="24,8"
+                        FontSize="12"
+                        Text="{Binding Igreja.BreveDescricao}"
+                        TextColor="Black" />
+
+
+                    <ScrollView
+                        Grid.Row="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+
+
+                        <StackLayout>
+
+                            <Label
+                                Grid.Row="2"
+                                Margin="24,8"
+                                FontFamily=".SFUIText-Bold"
+                                FontSize="19"
+                                Text="Detalhes"
+                                TextColor="Black" />
+
+                            <StackLayout
+                                Grid.Row="3"
+                                Margin="24,-18"
+                                Padding="12">
+
+                                <StackLayout HorizontalOptions="Fill">
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.Altura, StringFormat='Altura: {0} Metros'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.Arquiteto, StringFormat='Arquiteto: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EstiloArquitetonico, StringFormat='Estilo Arquitetônico: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.Capacidade, StringFormat='Capacidade: {0:G} Mil'}"
+                                        TextColor="Blue" />
+
+                                </StackLayout>
+
+
+                            </StackLayout>
+
+
+                            <Label
+                                Grid.Row="4"
+                                Margin="24,8"
+                                FontFamily=".SFUIText-Bold"
+                                FontSize="19"
+                                Text="Contato"
+                                TextColor="Black" />
+
+                            <StackLayout
+                                Grid.Row="5"
+                                Margin="24,-18"
+                                Padding="10,10,0,20">
+
+                                <StackLayout
+                                    HorizontalOptions="Fill"
+                                    Orientation="Vertical">
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EnderecoIgreja.Logradouro, StringFormat='Endereço: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EnderecoIgreja.Numero, StringFormat='Número: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EnderecoIgreja.Bairro, StringFormat='Bairro: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EnderecoIgreja.Cidade, StringFormat='Cidade: {0}'}"
+                                        TextColor="Blue" />
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.EnderecoIgreja.CEP, StringFormat='CEP: {0}'}"
+                                        TextColor="Blue" />
+
+
+
+                                    <Label
+                                        FontSize="12"
+                                        Text="{Binding Igreja.Telefone, StringFormat='Telefone: {0}'}"
+                                        TextColor="Blue" />
+
+                                </StackLayout>
+
+
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </ScrollView>
+
+                </Grid>
+
+            </yummy:PancakeView>
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>
